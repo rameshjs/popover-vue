@@ -3,7 +3,11 @@
     <div class="popper-trigger" ref="popperTrigger">
       <slot></slot>
     </div>
-    <div v-show="showPopperContent" ref="popperContent" class="popper-content">
+    <div
+      v-show="showPopperContent && !disabled"
+      ref="popperContent"
+      class="popper-content"
+    >
       <slot
         name="content"
         :close="closePopper"
@@ -19,9 +23,11 @@ export default {
 };
 </script>
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { contentPosition } from "./utils/popper";
 import { onClickOutside } from "@vueuse/core";
+
+const emit = defineEmits(["open:popper", "close:popper"]);
 
 const props = defineProps({
   hover: {
@@ -36,6 +42,14 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  placement: {
+    type: String,
+    default: "bottom",
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const popperTrigger = ref(null);
@@ -45,13 +59,31 @@ const popperWrapper = ref(null);
 
 const showPopperContent = ref(false);
 
+watch(showPopperContent, (updatedValue) => {
+  if (updatedValue) {
+    emit("open:popper");
+  } else {
+    emit("close:popper");
+  }
+});
+
 const toggle = (e) => {
-  contentPosition(e.target, popperContent.value, popperArrow.value);
+  contentPosition(
+    e.target,
+    popperContent.value,
+    popperArrow.value,
+    props.placement
+  );
   showPopperContent.value = !showPopperContent.value;
 };
 
 const openPopper = (e) => {
-  contentPosition(e.target, popperContent.value, popperArrow.value);
+  contentPosition(
+    e.target,
+    popperContent.value,
+    popperArrow.value,
+    props.placement
+  );
   showPopperContent.value = true;
 };
 

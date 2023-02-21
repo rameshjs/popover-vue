@@ -1,7 +1,8 @@
 import { computePosition, offset, flip, shift, arrow } from "@floating-ui/dom";
 
-export const contentPosition = (target, content, arrowElement) => {
+export const contentPosition = (target, content, arrowElement, placement) => {
   computePosition(target, content, {
+    placement: placement,
     middleware: [
       offset(6),
       flip(),
