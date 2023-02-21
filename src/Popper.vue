@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div ref="popperWrapper" class="popper-wrapper">
     <div class="popper-trigger" ref="popperTrigger">
       <slot></slot>
     </div>
     <div v-show="showPopperContent" ref="popperContent" class="popper-content">
       <slot name="content"></slot>
-      <div ref="popperArrow" class="arrow"></div>
+      <div v-show="arrow" ref="popperArrow" class="arrow"></div>
     </div>
   </div>
 </template>
@@ -17,14 +17,32 @@ export default {
 <script setup>
 import { onMounted, ref } from "vue";
 import { contentPosition } from "./utils/popper";
+import { onClickOutside } from "@vueuse/core";
+
+const props = defineProps({
+  hover: {
+    type: Boolean,
+    default: false,
+  },
+  clickOutside: {
+    type: Boolean,
+    default: true,
+  },
+  arrow: {
+    type: Boolean,
+    default: true,
+  },
+});
 
 const popperTrigger = ref(null);
 const popperContent = ref(null);
 const popperArrow = ref(null);
+const popperWrapper = ref(null);
 
 const showPopperContent = ref(false);
 
-const toggle = () => {
+const toggle = (e) => {
+  contentPosition(e.target, popperContent.value, popperArrow.value);
   showPopperContent.value = !showPopperContent.value;
 };
 
@@ -33,16 +51,33 @@ const openPopper = (e) => {
   showPopperContent.value = true;
 };
 
-const closePopper = (e) => {
-  contentPosition(e.target, popperContent.value, popperArrow.value);
+const closePopper = () => {
   showPopperContent.value = false;
 };
+
+const mouseenter = (e) => {
+  if (props.hover) {
+    openPopper(e);
+  }
+};
+
+const mouseleave = () => {
+  if (props.hover) {
+    closePopper();
+  }
+};
+
+onClickOutside(popperWrapper, () => {
+  if (props.clickOutside) {
+    closePopper();
+  }
+});
 
 onMounted(() => {
   [
     ["click", toggle],
-    ["mouseenter", openPopper],
-    ["mouseleave", closePopper],
+    ["mouseenter", mouseenter],
+    ["mouseleave", mouseleave],
     ["focus", openPopper],
     ["blur", closePopper],
   ].forEach(([event, listener]) => {
