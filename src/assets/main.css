@@ -1,3 +1,22 @@
 .popper-trigger{
   width: fit-content;
+  margin-left: 100px;
+}
+
+.popper-content{
+  width: max-content;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #222;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.arrow {
+  position: absolute;
+  background: #222;
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
 }
