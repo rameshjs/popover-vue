@@ -3,8 +3,8 @@
     <div class="popper-trigger" ref="popperTrigger">
       <slot></slot>
     </div>
-    <div ref="popperContent" class="popper-content">
-      sadasdasdasdasdasdasdasdasdasdasdasdasdas
+    <div v-show="showPopperContent" ref="popperContent" class="popper-content">
+      <slot name="content"></slot>
       <div ref="popperArrow" class="arrow"></div>
     </div>
   </div>
@@ -15,78 +15,36 @@ export default {
 };
 </script>
 <script setup>
-import { computePosition, offset, flip, shift, arrow } from "@floating-ui/dom";
 import { onMounted, ref } from "vue";
+import { contentPosition } from "./utils/popper";
 
 const popperTrigger = ref(null);
 const popperContent = ref(null);
 const popperArrow = ref(null);
 
-const contentPosition = (target) => {
-  const content = popperContent.value;
-  const arrowElement = popperArrow.value;
+const showPopperContent = ref(false);
 
-  computePosition(target, content, {
-    placement: "top",
-    middleware: [
-      offset(6),
-      flip(),
-      shift({ padding: 5 }),
-      arrow({ element: arrowElement }),
-    ],
-  }).then(({ x, y, placement, middlewareData }) => {
-    Object.assign(content.style, {
-      left: `${x}px`,
-      top: `${y}px`,
-    });
-
-    const { x: arrowX, y: arrowY } = middlewareData.arrow;
-
-    const staticSide = {
-      top: "bottom",
-      right: "left",
-      bottom: "top",
-      left: "right",
-    }[placement.split("-")[0]];
-
-    Object.assign(arrowElement.style, {
-      left: arrowX != null ? `${arrowX}px` : "",
-      top: arrowY != null ? `${arrowY}px` : "",
-      right: "",
-      bottom: "",
-      [staticSide]: "-4px",
-    });
-  });
+const toggle = () => {
+  showPopperContent.value = !showPopperContent.value;
 };
 
-const clickEvent = (e) => {
-  contentPosition(e.target);
-  console.log(e);
+const openPopper = (e) => {
+  contentPosition(e.target, popperContent.value, popperArrow.value);
+  showPopperContent.value = true;
 };
 
-const mouseenter = (e) => {
-  console.log(e);
-};
-
-const mouseleave = (e) => {
-  console.log(e);
-};
-
-const focusEvent = (e) => {
-  console.log(e);
-};
-
-const blurEvent = (e) => {
-  console.log(e);
+const closePopper = (e) => {
+  contentPosition(e.target, popperContent.value, popperArrow.value);
+  showPopperContent.value = false;
 };
 
 onMounted(() => {
   [
-    ["click", clickEvent],
-    ["mouseenter", mouseenter],
-    ["mouseleave", mouseleave],
-    ["focus", focusEvent],
-    ["blur", blurEvent],
+    ["click", toggle],
+    ["mouseenter", openPopper],
+    ["mouseleave", closePopper],
+    ["focus", openPopper],
+    ["blur", closePopper],
   ].forEach(([event, listener]) => {
     popperTrigger.value.addEventListener(event, listener);
   });
