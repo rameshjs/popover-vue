@@ -7,10 +7,11 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: #222;
+  background: #ffffff;
   padding: 5px;
   border-radius: 4px;
   z-index: 999;
+  box-shadow: 0px -3px 30px -6px rgb(0 0 0 / 67%);
 }
 
 .popper-wrapper {
@@ -19,7 +20,7 @@
 
 .arrow {
   position: absolute;
-  background: #222;
+  background: #ffffff;
   width: 8px;
   height: 8px;
   transform: rotate(45deg);

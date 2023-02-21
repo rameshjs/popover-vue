@@ -4,7 +4,11 @@
       <slot></slot>
     </div>
     <div v-show="showPopperContent" ref="popperContent" class="popper-content">
-      <slot name="content"></slot>
+      <slot
+        name="content"
+        :close="closePopper"
+        :isOpen="showPopperContent"
+      ></slot>
       <div v-show="arrow" ref="popperArrow" class="arrow"></div>
     </div>
   </div>

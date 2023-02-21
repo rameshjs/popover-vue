@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="hello1">
     <Popper>
       <button>Button</button>
-      <template #content>
-        <div class="hello">hello</div>
+      <template #content="{ close, isOpen }">
+        <button @click="close">{{ isOpen }}</button>
       </template>
     </Popper>
   </div>
@@ -16,5 +16,11 @@ import Popper from "./Popper.vue";
   width: 200px;
   height: 400px;
   background: red;
+}
+.hello1 {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 200px;
 }
 </style>
