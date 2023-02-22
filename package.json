@@ -8,11 +8,7 @@
   "main": "./dist/popover-vue.umd.js",
   "module": "./dist/popover-vue.mjs",
   "style": "dist/style.css",
-  "author": {
-    "name": "Ramesh Kumar",
-    "email": "rameshkumar.exe@gmail.com",
-    "url": "https://github.com/rameshjs"
-  },
+  "author": "Ramesh Kumar <rameshkumar.exe@gmail.com> (https://github.com/rameshjs)",
   "license": "MIT",
   "exports": {
     ".": {
@@ -26,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rameshjs/popover-vue"
+    "url": "git+https://github.com/rameshjs/popover-vue.git"
   },
   "scripts": {
     "dev": "vite",
@@ -57,5 +53,10 @@
     "popover-vue",
     "popover",
     "popover-vue3"
-  ]
+  ],
+  "description": "> This is a Vue 3 component used to create a popover with customizable options such as placement, trigger on hover, arrow display, and control over its manual showing/hiding. It also has events for when the Popover is opened or hidden, and a slot for adding custom content to the Popover.",
+  "bugs": {
+    "url": "https://github.com/rameshjs/popover-vue/issues"
+  },
+  "homepage": "https://github.com/rameshjs/popover-vue#readme"
 }
