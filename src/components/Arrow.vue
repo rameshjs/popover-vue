@@ -1,5 +1,5 @@
 <template>
-  <div ref="popperArrow" id="arrow" data-popper-arrow></div>
+  <div ref="popoverArrow" id="arrow" data-popover-arrow></div>
 </template>
 <script>
 export default {
@@ -9,19 +9,19 @@ export default {
 <script setup>
 import { ref, defineExpose } from "vue";
 
-const popperArrow = ref(null);
+const popoverArrow = ref(null);
 
-defineExpose({ popperArrow });
+defineExpose({ popoverArrow });
 </script>
 <style scoped>
 #arrow,
 #arrow::before {
   transition: background 250ms ease-in-out;
   position: absolute;
-  width: calc(10px - var(--popper-theme-border-width, 0px));
-  height: calc(10px - var(--popper-theme-border-width, 0px));
+  width: calc(10px - var(--popover-theme-border-width, 0px));
+  height: calc(10px - var(--popover-theme-border-width, 0px));
   box-sizing: border-box;
-  background: var(--popper-theme-background-color);
+  background: var(--popover-theme-background-color);
 }
 
 #arrow {
@@ -35,43 +35,43 @@ defineExpose({ popperArrow });
 }
 
 /* Top arrow */
-.popper[data-popper-placement^="top"] > #arrow {
+.popover[data-popover-placement^="top"] > #arrow {
   bottom: -5px;
 }
 
-.popper[data-popper-placement^="top"] > #arrow::before {
-  border-right: var(--popper-theme-border-width)
-    var(--popper-theme-border-style) var(--popper-theme-border-color);
-  border-bottom: var(--popper-theme-border-width)
-    var(--popper-theme-border-style) var(--popper-theme-border-color);
+.popover[data-popover-placement^="top"] > #arrow::before {
+  border-right: var(--popover-theme-border-width)
+    var(--popover-theme-border-style) var(--popover-theme-border-color);
+  border-bottom: var(--popover-theme-border-width)
+    var(--popover-theme-border-style) var(--popover-theme-border-color);
 }
 
 /* Bottom arrow */
-.popper[data-popper-placement^="bottom"] > #arrow {
+.popover[data-popover-placement^="bottom"] > #arrow {
   top: -5px;
 }
 
-.popper[data-popper-placement^="bottom"] > #arrow::before {
-  border-left: var(--popper-theme-border-width) var(--popper-theme-border-style)
-    var(--popper-theme-border-color);
-  border-top: var(--popper-theme-border-width) var(--popper-theme-border-style)
-    var(--popper-theme-border-color);
+.popover[data-popover-placement^="bottom"] > #arrow::before {
+  border-left: var(--popover-theme-border-width)
+    var(--popover-theme-border-style) var(--popover-theme-border-color);
+  border-top: var(--popover-theme-border-width)
+    var(--popover-theme-border-style) var(--popover-theme-border-color);
 }
 
 /* Left arrow */
-.popper[data-popper-placement^="left"] > #arrow {
+.popover[data-popover-placement^="left"] > #arrow {
   right: -5px;
 }
 
-.popper[data-popper-placement^="left"] > #arrow::before {
-  border-right: var(--popper-theme-border-width)
-    var(--popper-theme-border-style) var(--popper-theme-border-color);
-  border-top: var(--popper-theme-border-width) var(--popper-theme-border-style)
-    var(--popper-theme-border-color);
+.popover[data-popover-placement^="left"] > #arrow::before {
+  border-right: var(--popover-theme-border-width)
+    var(--popover-theme-border-style) var(--popover-theme-border-color);
+  border-top: var(--popover-theme-border-width)
+    var(--popover-theme-border-style) var(--popover-theme-border-color);
 }
 
 /* Right arrow */
-.popper[data-popper-placement^="right"] > #arrow {
+.popover[data-popover-placement^="right"] > #arrow {
   left: -5px;
 }
 </style>

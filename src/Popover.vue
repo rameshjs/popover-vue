@@ -1,33 +1,33 @@
 <template>
-  <div ref="popperWrapper" class="popper-wrapper">
-    <div class="popper-trigger" ref="popperTrigger">
+  <div ref="popoverWrapper" class="popover-wrapper">
+    <div class="popover-trigger" ref="popoverTrigger">
       <slot></slot>{{ show }}
     </div>
     <div
-      v-show="showPopperContent && !disabled"
-      ref="popperContent"
-      class="popper-content"
+      v-show="showPopoverContent && !disabled"
+      ref="popoverContent"
+      class="popover-content"
     >
       <slot
         name="content"
-        :close="closePopper"
-        :isOpen="showPopperContent"
+        :close="closePopover"
+        :isOpen="showPopoverContent"
       ></slot>
-      <div v-show="arrow" ref="popperArrow" class="arrow"></div>
+      <div v-show="arrow" ref="popoverArrow" class="arrow"></div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: "BasePopper",
+  name: "BasePopover",
 };
 </script>
 <script setup>
 import { onMounted, ref, watch, computed, onUnmounted } from "vue";
-import { contentPosition } from "./utils/popper";
+import { contentPosition } from "./utils/popover";
 import { onClickOutside } from "@vueuse/core";
 
-const emit = defineEmits(["open:popper", "close:popper"]);
+const emit = defineEmits(["open:popover", "close:popover"]);
 
 const props = defineProps({
   hover: {
@@ -56,74 +56,74 @@ const props = defineProps({
   },
 });
 
-const popperTrigger = ref(null);
-const popperContent = ref(null);
-const popperArrow = ref(null);
-const popperWrapper = ref(null);
+const popoverTrigger = ref(null);
+const popoverContent = ref(null);
+const popoverArrow = ref(null);
+const popoverWrapper = ref(null);
 
-const showPopperContent = ref(false);
+const showPopoverContent = ref(false);
 
 const computedShow = computed(() => props.show);
 
-watch(showPopperContent, (updatedValue) => {
+watch(showPopoverContent, (updatedValue) => {
   if (updatedValue) {
-    emit("open:popper");
+    emit("open:popover");
   } else {
-    emit("close:popper");
+    emit("close:popover");
   }
 });
 
 watch(computedShow, (updatedValue) => {
   contentPosition(
-    popperTrigger.value,
-    popperContent.value,
-    popperArrow.value,
+    popoverTrigger.value,
+    popoverContent.value,
+    popoverArrow.value,
     props.placement
   );
-  showPopperContent.value = updatedValue;
+  showPopoverContent.value = updatedValue;
 });
 
 const toggle = (e) => {
   contentPosition(
     e.target,
-    popperContent.value,
-    popperArrow.value,
+    popoverContent.value,
+    popoverArrow.value,
     props.placement
   );
-  showPopperContent.value = !showPopperContent.value;
+  showPopoverContent.value = !showPopoverContent.value;
 };
 
-const openPopper = (e) => {
+const openPopover = (e) => {
   contentPosition(
     e.target,
-    popperContent.value,
-    popperArrow.value,
+    popoverContent.value,
+    popoverArrow.value,
     props.placement
   );
-  showPopperContent.value = true;
+  showPopoverContent.value = true;
 };
 
-const closePopper = () => {
+const closePopover = () => {
   if (props.show === null) {
-    showPopperContent.value = false;
+    showPopoverContent.value = false;
   }
 };
 
 const mouseenter = (e) => {
   if (props.hover) {
-    openPopper(e);
+    openPopover(e);
   }
 };
 
 const mouseleave = () => {
   if (props.hover) {
-    closePopper();
+    closePopover();
   }
 };
 
-onClickOutside(popperWrapper, () => {
+onClickOutside(popoverWrapper, () => {
   if (props.clickOutside) {
-    closePopper();
+    closePopover();
   }
 });
 
@@ -132,10 +132,10 @@ onMounted(() => {
     ["click", toggle],
     ["mouseenter", mouseenter],
     ["mouseleave", mouseleave],
-    ["focus", openPopper],
-    ["blur", closePopper],
+    ["focus", openPopover],
+    ["blur", closePopover],
   ].forEach(([event, listener]) => {
-    popperTrigger.value.addEventListener(event, listener);
+    popoverTrigger.value.addEventListener(event, listener);
   });
 });
 
@@ -144,10 +144,10 @@ onUnmounted(() => {
     ["click", toggle],
     ["mouseenter", mouseenter],
     ["mouseleave", mouseleave],
-    ["focus", openPopper],
-    ["blur", closePopper],
+    ["focus", openPopover],
+    ["blur", closePopover],
   ].forEach(([event, listener]) => {
-    popperTrigger.value.removeEventListener(event, listener);
+    popoverTrigger.value.removeEventListener(event, listener);
   });
 });
 </script>

@@ -1,15 +1,15 @@
 <template>
   <div class="hello1">
-    <Popper>
+    <Popover>
       <button>Button</button>
       <template #content="{ close, isOpen }">
         <button @click="close">{{ isOpen }}</button>
       </template>
-    </Popper>
+    </Popover>
   </div>
 </template>
 <script setup>
-import Popper from "./Popper.vue";
+import Popover from "./Popover.vue";
 </script>
 <style>
 .hello {
