@@ -1,8 +1,8 @@
-.popper-trigger{
+.popover-trigger{
   width: fit-content;
 }
 
-.popper-content{
+.popover-content{
   width: max-content;
   position: absolute;
   top: 0;
@@ -14,7 +14,7 @@
   box-shadow: 0px -3px 30px -6px rgb(0 0 0 / 67%);
 }
 
-.popper-wrapper {
+.popover-wrapper {
   width: fit-content;
 }
 
