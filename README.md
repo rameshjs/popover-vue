@@ -8,6 +8,8 @@
 
 ## [DOCUMENTATION](https://rameshjs.github.io/popover-vue/)
 
+#### [DEMO](https://stackblitz.com/edit/popover-vue?file=src%2FApp.vue)
+
 ## Installation
 
 First step is to install it using `yarn` or `npm`:
@@ -62,8 +64,8 @@ export default {
 
 | Name            | Description                           |
 | --------------- | ------------------------------------- |
-| `open:Popover`  | Triggered when the Popover is opened. |
-| `close:Popover` | Triggered when the Popover is hidden. |
+| `open:popover`  | Triggered when the Popover is opened. |
+| `close:popover` | Triggered when the Popover is hidden. |
 
 ---
 
