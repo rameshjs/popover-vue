@@ -1,7 +1,33 @@
 {
-  "name": "popoverjs-vue",
-  "version": "0.0.0",
-  "private": true,
+  "name": "popover-vue",
+  "version": "0.0.1",
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/popover-vue.umd.js",
+  "module": "./dist/popover-vue.mjs",
+  "style": "dist/style.css",
+  "author": {
+    "name": "Ramesh Kumar",
+    "email": "rameshkumar.exe@gmail.com",
+    "url": "https://github.com/rameshjs"
+  },
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "import": "./dist/popover-vue.mjs",
+      "require": "./dist/popover-vue.umd.js"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rameshjs/popover-vue"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -25,5 +51,11 @@
     "prettier": "^2.7.1",
     "vite": "^4.0.0",
     "vitest": "^0.25.6"
-  }
+  },
+  "keywords": [
+    "vue",
+    "popover-vue",
+    "popover",
+    "popover-vue3"
+  ]
 }

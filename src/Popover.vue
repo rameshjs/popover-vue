@@ -1,7 +1,7 @@
 <template>
   <div ref="popoverWrapper" class="popover-wrapper">
     <div class="popover-trigger" ref="popoverTrigger">
-      <slot></slot>{{ show }}
+      <slot></slot>
     </div>
     <div
       v-show="showPopoverContent && !disabled"
@@ -151,3 +151,42 @@ onUnmounted(() => {
   });
 });
 </script>
+<style>
+:root {
+  --popover-trigger-width: fit-content;
+  --popover-wrapper-width: fit-content;
+  --popover-content-width: max-content;
+}
+
+.popover-wrapper {
+  width: var(--popover-wrapper-width);
+}
+
+.popover-trigger {
+  width: var(--popover-trigger-width);
+}
+
+.arrow {
+  position: absolute;
+  background: var(--arrow-background, #ffffff);
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+.popover-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--popover-content-width);
+  background: var(--popover-content-background, #ffffff);
+  padding: var(--popover-content-padding);
+  border-radius: var(--popover-content-border-radius);
+  z-index: var(--popover-content-z-index, 999);
+  box-shadow: var(
+    --popover-content-box-shadow,
+    0px -3px 30px -6px rgb(0 0 0 / 67%)
+  );
+}
+</style>
