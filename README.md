@@ -2,6 +2,42 @@
 
 > This is a Vue 3 component used to create a popover with customizable options such as placement, trigger on hover, arrow display, and control over its manual showing/hiding. It also has events for when the Popover is opened or hidden, and a slot for adding custom content to the Popover.
 
+## Installation
+
+First step is to install it using `yarn` or `npm`:
+
+```bash
+yarn add popover-vue
+```
+
+or
+
+```bash
+npm i popover-vue
+```
+
+## Usage
+
+```vue
+<template>
+  <Popover>
+    <button>Button</button>
+    <template #content>
+      <div>content</div>
+    </template>
+  </Popover>
+</template>
+
+<script>
+import Popover from "popover-vue";
+import "popover-vue/dist/style.css";
+
+export default {
+  components: { Popover },
+};
+</script>
+```
+
 ---
 
 ## Props
