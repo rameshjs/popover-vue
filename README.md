@@ -1,4 +1,4 @@
-# Popoverjs-vue
+# Popover-vue
 
 
 >This is a Vue 3 component used to create a popover with customizable options such as placement, trigger on hover, arrow display, and control over its manual showing/hiding. It also has events for when the Popper is opened or hidden, and a slot for adding custom content to the Popper.
