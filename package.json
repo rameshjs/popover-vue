@@ -1,23 +1,18 @@
 {
   "name": "popover-vue",
-  "version": "0.0.3",
+  "version": "0.0.8",
   "private": false,
   "files": [
     "dist"
   ],
   "main": "./dist/popover-vue.umd.js",
   "module": "./dist/popover-vue.mjs",
-  "style": "dist/style.css",
   "author": "Ramesh Kumar <rameshkumar.exe@gmail.com> (https://github.com/rameshjs)",
   "license": "MIT",
   "exports": {
     ".": {
       "import": "./dist/popover-vue.mjs",
       "require": "./dist/popover-vue.umd.js"
-    },
-    "./dist/style.css": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
     }
   },
   "repository": {
@@ -34,6 +29,7 @@
   "dependencies": {
     "@floating-ui/dom": "^1.2.1",
     "@vueuse/core": "^9.13.0",
+    "vite-plugin-libcss": "^1.0.5",
     "vue": "^3.2.45"
   },
   "devDependencies": {
