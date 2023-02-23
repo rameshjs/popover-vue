@@ -38,7 +38,6 @@ npm i popover-vue
 
 <script>
 import Popover from "popover-vue";
-import "popover-vue/dist/style.css";
 
 export default {
   components: { Popover },
