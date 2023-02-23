@@ -21,12 +21,10 @@ export default defineConfig({
       fileName: "popover-vue",
     },
     rollupOptions: {
-      external: ["vue", "@floating-ui/dom", "@vueuse/core"],
+      external: ["vue"],
       output: {
         globals: {
           vue: "Vue",
-          "@floating-ui/dom": "@floating-ui/dom",
-          "@vueuse/core": "@vueuse/core",
         },
       },
     },
