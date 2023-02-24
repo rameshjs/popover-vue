@@ -1,4 +1,10 @@
-import{_ as s,c as a,o as n,a as l}from"./app.39ffa6d2.js";const C=JSON.parse('{"title":"General configuration","description":"","frontmatter":{},"headers":[{"level":2,"title":"placement","slug":"placement","link":"#placement","children":[]},{"level":2,"title":"hover","slug":"hover","link":"#hover","children":[]},{"level":2,"title":"arrow","slug":"arrow","link":"#arrow","children":[]},{"level":2,"title":"disabled","slug":"disabled","link":"#disabled","children":[]},{"level":2,"title":"show","slug":"show","link":"#show","children":[]}],"relativePath":"general-configuration.md"}'),o={name:"general-configuration.md"},p=l(`<h1 id="general-configuration" tabindex="-1">General configuration <a class="header-anchor" href="#general-configuration" aria-hidden="true">#</a></h1><p>General props configuration.</p><h2 id="placement" tabindex="-1"><code>placement</code> <a class="header-anchor" href="#placement" aria-hidden="true">#</a></h2><p>Sets the preferred placement of the Popover.</p><ul><li>Type: <code>String</code></li><li>Default: <code>bottom</code></li></ul><p>Example:</p><div class="language-vue"><button title="Copy Code" class="copy"></button><span class="lang">vue</span><pre class="shiki material-theme-palenight" tabindex="0"><code><span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#F07178;">template</span><span style="color:#89DDFF;">&gt;</span></span>
+import { _ as s, c as a, o as n, a as l } from "./app.39ffa6d2.js";
+const C = JSON.parse(
+    '{"title":"General configuration","description":"","frontmatter":{},"headers":[{"level":2,"title":"placement","slug":"placement","link":"#placement","children":[]},{"level":2,"title":"hover","slug":"hover","link":"#hover","children":[]},{"level":2,"title":"arrow","slug":"arrow","link":"#arrow","children":[]},{"level":2,"title":"disabled","slug":"disabled","link":"#disabled","children":[]},{"level":2,"title":"show","slug":"show","link":"#show","children":[]}],"relativePath":"general-configuration.md"}'
+  ),
+  o = { name: "general-configuration.md" },
+  p = l(
+    `<h1 id="general-configuration" tabindex="-1">General configuration <a class="header-anchor" href="#general-configuration" aria-hidden="true">#</a></h1><p>General props configuration.</p><h2 id="placement" tabindex="-1"><code>placement</code> <a class="header-anchor" href="#placement" aria-hidden="true">#</a></h2><p>Sets the preferred placement of the Popover.</p><ul><li>Type: <code>String</code></li><li>Default: <code>bottom</code></li></ul><p>Example:</p><div class="language-vue"><button title="Copy Code" class="copy"></button><span class="lang">vue</span><pre class="shiki material-theme-palenight" tabindex="0"><code><span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#F07178;">template</span><span style="color:#89DDFF;">&gt;</span></span>
 <span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#89DDFF;">&lt;</span><span style="color:#F07178;">Popover</span><span style="color:#89DDFF;"> </span><span style="color:#C792EA;">placement</span><span style="color:#89DDFF;">=</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">top</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">&gt;</span></span>
 <span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#89DDFF;">&lt;</span><span style="color:#F07178;">button</span><span style="color:#89DDFF;">&gt;</span><span style="color:#A6ACCD;">Button</span><span style="color:#89DDFF;">&lt;/</span><span style="color:#F07178;">button</span><span style="color:#89DDFF;">&gt;</span></span>
 <span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#89DDFF;">&lt;</span><span style="color:#F07178;">template</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">#</span><span style="color:#C792EA;">content</span><span style="color:#89DDFF;">&gt;</span></span>
@@ -38,4 +44,12 @@ import{_ as s,c as a,o as n,a as l}from"./app.39ffa6d2.js";const C=JSON.parse('{
 <span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#89DDFF;">&lt;/</span><span style="color:#F07178;">template</span><span style="color:#89DDFF;">&gt;</span></span>
 <span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#89DDFF;">&lt;/</span><span style="color:#F07178;">Popover</span><span style="color:#89DDFF;">&gt;</span></span>
 <span class="line"><span style="color:#89DDFF;">&lt;/</span><span style="color:#F07178;">template</span><span style="color:#89DDFF;">&gt;</span></span>
-<span class="line"></span></code></pre></div>`,27),e=[p];function t(c,r,D,F,y,i){return n(),a("div",null,e)}const A=s(o,[["render",t]]);export{C as __pageData,A as default};
+<span class="line"></span></code></pre></div>`,
+    27
+  ),
+  e = [p];
+function t(c, r, D, F, y, i) {
+  return n(), a("div", null, e);
+}
+const A = s(o, [["render", t]]);
+export { C as __pageData, A as default };

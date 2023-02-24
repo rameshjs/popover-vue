@@ -73,44 +73,46 @@ watch(showPopoverContent, (updatedValue) => {
   }
 });
 
-watch(computedShow, (updatedValue) => {
+watch(computedShow, () => {
   contentPosition(
     popoverTrigger.value,
     popoverContent.value,
     popoverArrow.value,
     props.placement
   );
-  showPopoverContent.value = updatedValue;
+  showPopoverContent.value = !showPopoverContent.value;
 });
 
 const toggle = (e) => {
-  contentPosition(
-    e.target,
-    popoverContent.value,
-    popoverArrow.value,
-    props.placement
-  );
-  showPopoverContent.value = !showPopoverContent.value;
-};
-
-const openPopover = (e) => {
-  contentPosition(
-    e.target,
-    popoverContent.value,
-    popoverArrow.value,
-    props.placement
-  );
-  showPopoverContent.value = true;
-};
-
-const closePopover = () => {
   if (props.show === null) {
-    showPopoverContent.value = false;
+    contentPosition(
+      e.target,
+      popoverContent.value,
+      popoverArrow.value,
+      props.placement
+    );
+    showPopoverContent.value = !showPopoverContent.value;
   }
 };
 
+const openPopover = (e) => {
+  if (props.show === null) {
+    contentPosition(
+      e.target,
+      popoverContent.value,
+      popoverArrow.value,
+      props.placement
+    );
+    showPopoverContent.value = true;
+  }
+};
+
+const closePopover = () => {
+  showPopoverContent.value = false;
+};
+
 const mouseenter = (e) => {
-  if (props.hover) {
+  if (props.hover && props.show === null) {
     openPopover(e);
   }
 };
