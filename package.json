@@ -1,6 +1,6 @@
 {
   "name": "popover-vue",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": false,
   "files": [
     "dist"
@@ -13,7 +13,8 @@
     ".": {
       "import": "./dist/popover-vue.mjs",
       "require": "./dist/popover-vue.umd.js"
-    }
+    },
+    "./dist/index.css": "./dist/index.css"
   },
   "repository": {
     "type": "git",
