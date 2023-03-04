@@ -1,0 +1,23 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "vue popper docs",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "repository": "https://github.com/rameshjs/popover-vue",
+  "author": "Ramesh Kumar M R",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "vitepress": "^1.0.0-alpha.46",
+    "vue": "^3.2.47"
+  },
+  "dependencies": {
+    "@rameshjs/datepicker-vue": "^2.0.1",
+    "autoprefixer": "^10.4.13",
+    "popover-vue": "^0.0.3"
+  }
+}
